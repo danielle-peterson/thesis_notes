@@ -1,0 +1,24 @@
+# move 16S files from ada to engaging
+# notes on r-sync
+# -vP (verbose progress, prints progress of transfer)
+# -z (zip, for big files)
+# --dry-run (tells which files are to be moved)
+# --files-from = files.txt (give a file of all filenames to be moved)
+# --ignore = "pattern"
+# --accept = "pattern"
+
+Mounting onto engaging cluster
+- ended up using atom remote edit, have engaging and ada connected
+
+rsync --files-from=keep_fastq_convert.txt danielle@ada:/lovelace/echo/sequencing/16S/rawfastq /Users/danielle/Documents/thesis/16S/raw_data
+rsync -r . vkclab@vkclab-engaging:/home/vkclab/danielle/16S/raw_data
+
+on ada, generate key for vkclab-engaging cluster and set up config file
+(send kevin the .pub i generate on ada)
+move keep_fastq to /ada/danielle
+change _ to -
+rsync from home folder on ada
+rsync to engaging
+
+# command to convert _ to - in filenames
+sed -E 's/([CM][0-9]+)[\-_]([0-9][EF])[\-_]([0-9][A-Z])(.+)/\1-\2-\3\4/' /home/danielle/16S/keep_fastq.txt > /home/danielle/16S/keep_fastq_convert.txt

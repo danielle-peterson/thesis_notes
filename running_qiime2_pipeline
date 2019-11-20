@@ -1,0 +1,35 @@
+Directions:
+
+1. SSH into vkclab-engaging cluster
+2. Activate qiime2-2019.7 env
+3. cd into the 16S folder and alter the qiime2_config file
+3. run command qiime2_pipeline
+
+
+Files in test_data:
+C0047-7E-1A_S66_L001_R1_001.fastq.gz
+C0047-7E-1A_S66_L001_R2_001.fastq.gz
+C1009-1F-1A_S237_L001_R1_001.fastq.gz
+C1009-1F-1A_S237_L001_R2_001.fastq.gz
+
+new mapping file: test_data_mapping
+
+rsync test_data_mapping.csv vkclab@vkclab-engaging:/home/vkclab/danielle/16S/mappingfiles
+
+
+Debugging:
+
+For running efficiency:
+-
+
+# Adding a symlink in the bin
+# everytime I edit the qiime2 pipeline in my thesis folder, it will update the bin
+# bin is in my path so it will executed from wherever I am
+-ln -s ~/Documents/thesis/16S/qiime2/qiime2_pipeline/qiime2_* ~/bin/
+
+# changing permissions making qiime2_pipeline executable (x)
+-chmod u+x /Users/danielle/Documents/thesis/16S/qiime2/qiime2_pipeline/qiime2_pipeline
+
+# if you are having problems with scikit-learn versions
+# make sure you are using the most up to date classifier
+conda install --override-channels -c defaults scikit-learn=0.20.2

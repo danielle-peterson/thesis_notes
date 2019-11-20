@@ -1,0 +1,10 @@
+# Creating qiime2 environment
+-Used .yaml file provided by qiime2 documentation to create environment to run qiime2-2019.7
+
+wget https://data.qiime2.org/distro/core/qiime2-2019.7-py36-osx-conda.yml
+conda env create -n qiime2 --file qiime2-2019.7-py36-osx-conda.yml
+
+# Creating analysis environment
+-Created thesis_analysis_env.yaml file for processing data
+
+# Created Github repo for thesis 
